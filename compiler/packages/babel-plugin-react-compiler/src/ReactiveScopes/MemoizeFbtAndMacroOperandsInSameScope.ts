@@ -47,6 +47,7 @@ export function memoizeFbtAndMacroOperandsInSameScope(
   const fbtMacroTags = new Set<Macro>([
     ...Array.from(FBT_TAGS).map((tag): Macro => [tag, []]),
     ...(fn.env.config.customMacros ?? []),
+    ...(fn.env.preserveManualMemo() ? ["useMemo", "useCallback"] : []),
   ]);
   const fbtValues: Set<IdentifierId> = new Set();
   const macroMethods = new Map<IdentifierId, Array<Array<MacroMethod>>>();

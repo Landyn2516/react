@@ -1174,7 +1174,7 @@ export type NonLocalBinding =
       imported: string;
     }
   // let, const, function, etc declared in the module but outside the current component/hook
-  | {kind: 'ModuleLocal'; name: string}
+  | {kind: 'ModuleLocal'; name: string, immutable: boolean}
   // an unresolved binding
   | {kind: 'Global'; name: string};
 
